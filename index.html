@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CD DL Process Expert Â· æˆéƒ½æ´—è¡£ç²‰å·¥è‰ºAIä¸“å®¶</title>
+  <title>CD DL Process Expert · 成都洗衣粉工艺AI专家</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
       height: 100vh;
     }
 
-    /* â”€â”€â”€ SIDEBAR â”€â”€â”€ */
+    /* ─── SIDEBAR ─── */
     .sidebar {
       width: var(--sidebar-w);
       background: linear-gradient(175deg, #1c1c1e 0%, #252526 55%, #1a2420 100%);
@@ -201,7 +201,7 @@
       line-height: 1.4;
       margin-bottom: 3px;
     }
-    .example-q::before { content: 'â¯ '; color: var(--bamboo); font-size: 10px; }
+    .example-q::before { content: '❯ '; color: var(--bamboo); font-size: 10px; }
     .example-q:hover {
       background: rgba(255,255,255,0.05);
       border-color: rgba(255,255,255,0.08);
@@ -221,7 +221,7 @@
     }
     .sb-footer-txt strong { color: rgba(58,157,79,0.6); font-weight: 500; }
 
-    /* â”€â”€â”€ MAIN â”€â”€â”€ */
+    /* ─── MAIN ─── */
     .main {
       flex: 1;
       display: flex;
@@ -445,7 +445,7 @@
     }
     .err-box svg { flex-shrink: 0; margin-top: 1px; }
 
-    /* â”€â”€â”€ INPUT AREA â”€â”€â”€ */
+    /* ─── INPUT AREA ─── */
     .input-area {
       padding: 14px 20px 18px;
       background: white;
@@ -520,12 +520,12 @@
 </head>
 <body>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SIDEBAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
 <aside class="sidebar">
   <div class="sb-top">
 
     <!-- Panda mascot -->
-    <div class="panda-wrap" onclick="pandaPlay(this)" title="ç‚¹å‡»ç†ŠçŒ«~">
+    <div class="panda-wrap" onclick="pandaPlay(this)" title="点击熊猫~">
       <svg width="88" height="88" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
         <!-- Ears -->
         <circle cx="27" cy="27" r="20" fill="#1a1a1a"/>
@@ -559,10 +559,10 @@
     <div class="sb-title-area">
       <div class="sb-title-en">CD DL Process Expert</div>
       <div class="sb-divider-line"></div>
-      <div class="sb-title-cn">æˆéƒ½æ´—è¡£ç²‰å·¥è‰ºAIä¸“å®¶</div>
+      <div class="sb-title-cn">成都洗衣粉工艺AI专家</div>
       <div class="rag-badge">
         <span class="rag-badge-dot"></span>
-        RAG Â· AI AGENT
+        RAG · AI AGENT
       </div>
     </div>
   </div>
@@ -573,28 +573,28 @@
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round">
       <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
     </svg>
-    æ–°å¯¹è¯
+    新对话
   </button>
 
   <div class="sb-section" style="margin-top:16px;">
-    <div class="sb-section-label">å¸¸è§é—®é¢˜</div>
-    <span class="example-q" onclick="fillInput(this)">å–·é›¾å¹²ç‡¥å¡”å…³é”®æŽ§åˆ¶å‚æ•°ï¼Ÿ</span>
-    <span class="example-q" onclick="fillInput(this)">å¦‚ä½•æé«˜æˆå“æµåŠ¨æ€§ï¼Ÿ</span>
-    <span class="example-q" onclick="fillInput(this)">æµ†æ–™é…åˆ¶çš„å·¥è‰ºè¦ç‚¹</span>
-    <span class="example-q" onclick="fillInput(this)">æ´—è¡£ç²‰ç»“å—åŽŸå› åˆ†æž</span>
-    <span class="example-q" onclick="fillInput(this)">DLå·¥åŽ‚è´¨é‡æ ‡å‡†æ˜¯ä»€ä¹ˆï¼Ÿ</span>
-    <span class="example-q" onclick="fillInput(this)">è¡¨é¢æ´»æ€§å‰‚çš„ä½œç”¨æœºç†</span>
+    <div class="sb-section-label">常见问题</div>
+    <span class="example-q" onclick="fillInput(this)">喷雾干燥塔关键控制参数？</span>
+    <span class="example-q" onclick="fillInput(this)">如何提高成品流动性？</span>
+    <span class="example-q" onclick="fillInput(this)">浆料配制的工艺要点</span>
+    <span class="example-q" onclick="fillInput(this)">洗衣粉结块原因分析</span>
+    <span class="example-q" onclick="fillInput(this)">DL工厂质量标准是什么？</span>
+    <span class="example-q" onclick="fillInput(this)">表面活性剂的作用机理</span>
   </div>
 
   <div class="sb-footer">
     <div class="sb-footer-txt">
-      <div>æˆéƒ½ DL å·¥åŽ‚ Â· å·¥è‰ºçŸ¥è¯†åº“</div>
-      <div><strong>Powered by Dify RAG</strong> Â· P&amp;G</div>
+      <div>成都 DL 工厂 · 工艺知识库</div>
+      <div><strong>Powered by Dify RAG</strong> · P&amp;G</div>
     </div>
   </div>
 </aside>
 
-<!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MAIN â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<!-- ═══════════════ MAIN ═══════════════ -->
 <main class="main">
 
   <!-- Header -->
@@ -619,12 +619,12 @@
       </svg>
       <div>
         <div class="hdr-title">CD DL Process Expert</div>
-        <div class="hdr-sub">æˆéƒ½æ´—è¡£ç²‰å·¥è‰ºAIä¸“å®¶ Â· æ™ºèƒ½çŸ¥è¯†é—®ç­”</div>
+        <div class="hdr-sub">成都洗衣粉工艺AI专家 · 智能知识问答</div>
       </div>
     </div>
     <div class="hdr-right">
       <span class="status-dot"></span>
-      <span class="status-label">åœ¨çº¿</span>
+      <span class="status-label">在线</span>
     </div>
   </header>
 
@@ -650,18 +650,18 @@
         <circle cx="29" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
         <circle cx="91" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
       </svg>
-      <div class="wc-title">ä½ å¥½ï¼æˆ‘æ˜¯ DL å·¥è‰ºAIä¸“å®¶ ðŸŽ‹</div>
+      <div class="wc-title">你好！我是 DL 工艺AI专家 🎋</div>
       <div class="wc-desc">
-        æˆ‘æ˜¯åŸºäºŽæˆéƒ½DLå·¥åŽ‚å·¥è‰ºçŸ¥è¯†åº“æ‰“é€ çš„AIåŠ©æ‰‹ï¼Œ<br>
-        ä¸“æ³¨äºŽæ´—è¡£ç²‰ç”Ÿäº§å·¥è‰ºã€é…æ–¹ä¼˜åŒ–ã€è®¾å¤‡æ“ä½œä¸Žè´¨é‡æŽ§åˆ¶ã€‚<br>
-        æœ‰ä»€ä¹ˆå·¥è‰ºé—®é¢˜ï¼Œå°½ç®¡é—®æˆ‘ï¼
+        我是基于成都DL工厂工艺知识库打造的AI助手，<br>
+        专注于洗衣粉生产工艺、配方优化、设备操作与质量控制。<br>
+        有什么工艺问题，尽管问我！
       </div>
       <div class="wc-chips">
-        <button class="chip" onclick="chipSend('è¯·ä»‹ç»æˆéƒ½DLå·¥åŽ‚æ´—è¡£ç²‰çš„ä¸»è¦ç”Ÿäº§å·¥è‰ºæµç¨‹')">ðŸ­ å·¥è‰ºæµç¨‹</button>
-        <button class="chip" onclick="chipSend('æ´—è¡£ç²‰é…æ–¹çš„ä¸»è¦æˆåˆ†åŠå„è‡ªçš„ä½œç”¨æ˜¯ä»€ä¹ˆï¼Ÿ')">ðŸ§ª é…æ–¹çŸ¥è¯†</button>
-        <button class="chip" onclick="chipSend('å–·é›¾å¹²ç‡¥å¡”çš„æ“ä½œè§„ç¨‹å’Œæ³¨æ„äº‹é¡¹æ˜¯ä»€ä¹ˆï¼Ÿ')">âš™ï¸ è®¾å¤‡æ“ä½œ</button>
-        <button class="chip" onclick="chipSend('æ´—è¡£ç²‰æˆå“çš„ä¸»è¦è´¨é‡æ£€æµ‹é¡¹ç›®å’Œæ ‡å‡†ï¼Ÿ')">ðŸ“Š è´¨é‡æ ‡å‡†</button>
-        <button class="chip" onclick="chipSend('å–·é›¾å¹²ç‡¥å¡”å¸¸è§æ•…éšœåŠæŽ’æŸ¥æ–¹æ³•ï¼Ÿ')">ðŸ”§ æ•…éšœæŽ’æŸ¥</button>
+        <button class="chip" onclick="chipSend('请介绍成都DL工厂洗衣粉的主要生产工艺流程')">🏭 工艺流程</button>
+        <button class="chip" onclick="chipSend('洗衣粉配方的主要成分及各自的作用是什么？')">🧪 配方知识</button>
+        <button class="chip" onclick="chipSend('喷雾干燥塔的操作规程和注意事项是什么？')">⚙️ 设备操作</button>
+        <button class="chip" onclick="chipSend('洗衣粉成品的主要质量检测项目和标准？')">📊 质量标准</button>
+        <button class="chip" onclick="chipSend('喷雾干燥塔常见故障及排查方法？')">🔧 故障排查</button>
       </div>
     </div>
 
@@ -673,12 +673,12 @@
       <textarea
         id="msgInput"
         class="msg-input"
-        placeholder="å‘å·¥è‰ºAIä¸“å®¶æé—®â€¦ï¼ˆæ”¯æŒä¸­è‹±æ–‡ï¼ŒEnter å‘é€ï¼‰"
+        placeholder="向工艺AI专家提问…（支持中英文，Enter 发送）"
         rows="1"
         onkeydown="onKeyDown(event)"
         oninput="autoGrow(this)"
       ></textarea>
-      <button id="sendBtn" class="send-btn" onclick="doSend()" title="å‘é€ (Enter)">
+      <button id="sendBtn" class="send-btn" onclick="doSend()" title="发送 (Enter)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
           <line x1="22" y1="2" x2="11" y2="13"/>
           <polygon points="22 2 15 22 11 13 2 9 22 2"/>
@@ -686,19 +686,19 @@
       </button>
     </div>
     <div class="input-hint">
-      æŒ‰ <kbd>Enter</kbd> å‘é€ &nbsp;Â·&nbsp; <kbd>Shift + Enter</kbd> æ¢è¡Œ
+      按 <kbd>Enter</kbd> 发送 &nbsp;·&nbsp; <kbd>Shift + Enter</kbd> 换行
     </div>
   </div>
 
 </main>
 
 <script>
-// â”€â”€â”€ CONFIG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── CONFIG ─────────────────────────────────────────
 const API_KEY  = 'app-mvvhaxAcUeU0kWwxhr23OH6i';
 const API_BASE = 'https://nezha-qa-api.cn-pgcloud.com/v1';
 const USER_ID  = 'cd-dl-user-' + Math.random().toString(36).slice(2, 9);
 
-// â”€â”€â”€ STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── STATE ──────────────────────────────────────────
 let convId        = '';
 let busy          = false;
 let streamEl      = null;
@@ -706,21 +706,21 @@ let streamContent = '';
 let useBlocking   = false;
 let activeTyping  = null;   // typing bubble DOM node, kept until first content
 
-// â”€â”€â”€ DOM â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── DOM ────────────────────────────────────────────
 const msgsArea = document.getElementById('msgsArea');
 const msgInput = document.getElementById('msgInput');
 const sendBtn  = document.getElementById('sendBtn');
 
-// â”€â”€â”€ PANDA FUN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── PANDA FUN ──────────────────────────────────────
 function pandaPlay(el) {
   el.style.animation = 'none';
   void el.offsetWidth;
   el.style.animation = 'pandaBob 0.6s ease-in-out 3, pandaBob 5s ease-in-out infinite 1.8s';
 }
 
-// â”€â”€â”€ SIDEBAR HELPERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── SIDEBAR HELPERS ────────────────────────────────
 function fillInput(el) {
-  const txt = el.textContent.replace(/^â¯ /, '').trim();
+  const txt = el.textContent.replace(/^❯ /, '').trim();
   msgInput.value = txt;
   autoGrow(msgInput);
   msgInput.focus();
@@ -749,15 +749,15 @@ function newChat() {
 function buildWelcomeCard() {
   const wc = document.getElementById('welcomeCard');
   if (wc) { wc.style.display = ''; return wc; }
-  // fallback â€“ shouldn't normally be needed
+  // fallback – shouldn't normally be needed
   const d = document.createElement('div');
   d.id = 'welcomeCard';
   d.className = 'welcome-card';
-  d.innerHTML = '<div class="wc-title">æ–°å¯¹è¯å¼€å§‹ ðŸŽ‹</div>';
+  d.innerHTML = '<div class="wc-title">新对话开始 🎋</div>';
   return d;
 }
 
-// â”€â”€â”€ INPUT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── INPUT ──────────────────────────────────────────
 function autoGrow(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 120) + 'px';
@@ -767,7 +767,7 @@ function onKeyDown(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); doSend(); }
 }
 
-// â”€â”€â”€ SEND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── SEND ───────────────────────────────────────────
 async function doSend() {
   const query = msgInput.value.trim();
   if (!query || busy) return;
@@ -807,7 +807,7 @@ async function doSend() {
 
 function handleEvent(ev) {
   if (ev.event === 'message' || ev.event === 'agent_message') {
-    // First real text chunk: swap typing bubble â†’ stream bubble
+    // First real text chunk: swap typing bubble → stream bubble
     if (activeTyping) {
       activeTyping.remove();
       activeTyping = null;
@@ -821,20 +821,20 @@ function handleEvent(ev) {
     // Show what the agent is thinking / which tool it's calling
     const thought = ev.thought || '';
     const tool    = ev.tool || '';
-    let label = 'ðŸ¼ æ€è€ƒä¸­â€¦';
-    if (tool)    label = `ðŸ”§ è°ƒç”¨å·¥å…·ï¼š${tool}`;
-    else if (thought) label = `ðŸ’­ ${thought.slice(0, 60)}${thought.length > 60 ? 'â€¦' : ''}`;
+    let label = '🐼 思考中…';
+    if (tool)    label = `🔧 调用工具：${tool}`;
+    else if (thought) label = `💭 ${thought.slice(0, 60)}${thought.length > 60 ? '…' : ''}`;
     updateTypingLabel(label);
   } else if (ev.event === 'workflow_started' || ev.event === 'node_started') {
-    updateTypingLabel('âš™ï¸ æ­£åœ¨åˆ†æžé—®é¢˜â€¦');
+    updateTypingLabel('⚙️ 正在分析问题…');
   } else if (ev.event === 'message_end') {
     if (ev.conversation_id) convId = ev.conversation_id;
   } else if (ev.event === 'error') {
-    appendError(ev.message ?? 'æœªçŸ¥é”™è¯¯');
+    appendError(ev.message ?? '未知错误');
   }
 }
 
-// â”€â”€â”€ DOM BUILDERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── DOM BUILDERS ───────────────────────────────────
 function now() {
   return new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
 }
@@ -857,16 +857,16 @@ const PANDA_SVG = `<svg width="34" height="34" viewBox="0 0 120 120" xmlns="http
   <circle cx="91" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
 </svg>`;
 
-// â”€â”€â”€ STREAMING SEND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── STREAMING SEND ─────────────────────────────────
 async function sendStreaming(query, typingGroup) {
   const payload = {
-    inputs: {},
+    inputs: { user_question: query },
     query,
     response_mode: 'streaming',
     ...(convId ? { conversation_id: convId } : {}),
     user: USER_ID,
   };
-  console.log('[CD-DL] è¯·æ±‚ payload:', JSON.stringify(payload));
+  console.log('[CD-DL] 请求 payload:', JSON.stringify(payload));
 
   const resp = await fetch(`${API_BASE}/chat-messages`, {
     method: 'POST',
@@ -879,14 +879,14 @@ async function sendStreaming(query, typingGroup) {
 
   if (!resp.ok) {
     const body = await resp.text().catch(() => '');
-    console.error('[CD-DL] å“åº”é”™è¯¯ä½“:', body);
+    console.error('[CD-DL] 响应错误体:', body);
     let detail = '';
     try { detail = JSON.parse(body).message || JSON.parse(body).error || body; } catch (_) { detail = body; }
     throw new Error(`HTTP ${resp.status}: ${detail || resp.statusText}`);
   }
 
   activeTyping = typingGroup;
-  updateTypingLabel('ðŸ¼ æ€è€ƒä¸­â€¦');
+  updateTypingLabel('🐼 思考中…');
 
   const reader  = resp.body.getReader();
   const decoder = new TextDecoder();
@@ -911,7 +911,7 @@ async function sendStreaming(query, typingGroup) {
   if (activeTyping) { activeTyping.remove(); activeTyping = null; }
 }
 
-// â”€â”€â”€ BLOCKING FALLBACK â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── BLOCKING FALLBACK ───────────────────────────────
 async function sendBlocking(query, typingGroup) {
   const resp = await fetch(`${API_BASE}/chat-messages`, {
     method: 'POST',
@@ -938,34 +938,34 @@ async function sendBlocking(query, typingGroup) {
   finalizeStream();
 }
 
-// â”€â”€â”€ ERROR DIAGNOSIS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── ERROR DIAGNOSIS ────────────────────────────────
 function diagErr(err) {
   const m = (err.message || '').toLowerCase();
   if (m.includes('failed to fetch') || m.includes('networkerror') || m.includes('load failed')) {
-    return 'ç½‘ç»œè¯·æ±‚å¤±è´¥ï¼ˆFailed to fetchï¼‰\n\nå¯èƒ½åŽŸå› ï¼š\nâ‘  æœªè¿žæŽ¥ P&G å†…ç½‘ / VPN â€” è¯·ç¡®è®¤å·²å¼€å¯ GlobalProtect\nâ‘¡ ç”¨ file:// ç›´æŽ¥æ‰“å¼€å¯¼è‡´ CORS é™åˆ¶ â€” ç”¨æœ¬åœ°æœåŠ¡å™¨æ‰“å¼€\nâ‘¢ é˜²ç«å¢™é˜»æ­¢äº† nezha-qa-api.cn-pgcloud.com';
+    return '网络请求失败（Failed to fetch）\n\n可能原因：\n① 未连接 P&G 内网 / VPN — 请确认已开启 GlobalProtect\n② 用 file:// 直接打开导致 CORS 限制 — 用本地服务器打开\n③ 防火墙阻止了 nezha-qa-api.cn-pgcloud.com';
   }
   if (m.includes('cors')) {
-    return 'CORS è·¨åŸŸè¢«æ‹’ç»\n\nè¯·å°†æ–‡ä»¶éƒ¨ç½²åˆ°æœ¬åœ° HTTP æœåŠ¡å™¨åŽå†è®¿é—®ï¼ˆpython -m http.server 8080ï¼‰';
+    return 'CORS 跨域被拒绝\n\n请将文件部署到本地 HTTP 服务器后再访问（python -m http.server 8080）';
   }
   if (m.includes('401') || m.includes('unauthorized')) {
-    return 'API Key æ— æ•ˆæˆ–å·²è¿‡æœŸï¼ˆ401 Unauthorizedï¼‰';
+    return 'API Key 无效或已过期（401 Unauthorized）';
   }
-  if (m.includes('403')) { return 'æ— è®¿é—®æƒé™ï¼ˆ403 Forbiddenï¼‰'; }
-  if (m.includes('429')) { return 'è¯·æ±‚è¿‡äºŽé¢‘ç¹ï¼ˆ429ï¼‰ï¼Œç¨åŽå†è¯•'; }
+  if (m.includes('403')) { return '无访问权限（403 Forbidden）'; }
+  if (m.includes('429')) { return '请求过于频繁（429），稍后再试'; }
   if (m.includes('500') || m.includes('502') || m.includes('503')) {
-    return `æœåŠ¡ç«¯é”™è¯¯ï¼ˆ${err.message}ï¼‰â€” è¯·ç¨åŽé‡è¯•`;
+    return `服务端错误（${err.message}）— 请稍后重试`;
   }
-  return err.message || 'æœªçŸ¥é”™è¯¯ï¼Œè¯·æ£€æŸ¥æŽ§åˆ¶å°æ—¥å¿—';
+  return err.message || '未知错误，请检查控制台日志';
 }
 
-// â”€â”€â”€ DOM BUILDERS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── DOM BUILDERS ────────────────────────────────────
 function appendUser(text) {
   const g = document.createElement('div');
   g.className = 'msg-group user';
   g.innerHTML = `
-    <div class="avatar user">æˆ‘</div>
+    <div class="avatar user">我</div>
     <div class="msg-meta">
-      <span class="msg-sender">ä½ </span>
+      <span class="msg-sender">你</span>
       <div class="bubble user">${esc(text)}</div>
       <span class="msg-time">${now()}</span>
     </div>`;
@@ -979,13 +979,13 @@ function appendTyping() {
   g.innerHTML = `
     <div class="avatar ai">${PANDA_SVG}</div>
     <div class="msg-meta">
-      <span class="msg-sender">å·¥è‰ºAIä¸“å®¶</span>
+      <span class="msg-sender">工艺AI专家</span>
       <div class="bubble ai">
         <div class="typing-status" id="typingStatus">
           <div class="typing-ind">
             <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
           </div>
-          <span class="typing-label">æ­£åœ¨è¿žæŽ¥â€¦</span>
+          <span class="typing-label">正在连接…</span>
         </div>
       </div>
     </div>`;
@@ -1008,7 +1008,7 @@ function appendAiBubble() {
   g.innerHTML = `
     <div class="avatar ai">${PANDA_SVG}</div>
     <div class="msg-meta">
-      <span class="msg-sender">å·¥è‰ºAIä¸“å®¶</span>
+      <span class="msg-sender">工艺AI专家</span>
       <div class="bubble ai" id="streamBubble"><span class="stream-cursor"></span></div>
       <span class="msg-time" id="streamTime"></span>
     </div>`;
@@ -1043,7 +1043,7 @@ function appendError(msg) {
   g.innerHTML = `
     <div class="avatar ai">${PANDA_SVG}</div>
     <div class="msg-meta">
-      <span class="msg-sender">å·¥è‰ºAIä¸“å®¶</span>
+      <span class="msg-sender">工艺AI专家</span>
       <div class="bubble ai">
         <div class="err-box" style="flex-direction:column;gap:10px;">
           <div style="display:flex;align-items:flex-start;gap:8px;">
@@ -1053,8 +1053,8 @@ function appendError(msg) {
             <span style="line-height:1.65">${html}</span>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button onclick="switchToBlocking()" style="padding:5px 12px;font-size:12px;font-family:inherit;background:#fff3e0;border:1px solid #ffe0b2;color:#e65100;border-radius:6px;cursor:pointer;">åˆ‡æ¢æ™®é€šæ¨¡å¼é‡è¯•</button>
-            <button onclick="retryLast()" style="padding:5px 12px;font-size:12px;font-family:inherit;background:#e8f5e9;border:1px solid #c8e6c9;color:#2d6a4f;border-radius:6px;cursor:pointer;">é‡è¯•</button>
+            <button onclick="switchToBlocking()" style="padding:5px 12px;font-size:12px;font-family:inherit;background:#fff3e0;border:1px solid #ffe0b2;color:#e65100;border-radius:6px;cursor:pointer;">切换普通模式重试</button>
+            <button onclick="retryLast()" style="padding:5px 12px;font-size:12px;font-family:inherit;background:#e8f5e9;border:1px solid #c8e6c9;color:#2d6a4f;border-radius:6px;cursor:pointer;">重试</button>
           </div>
         </div>
       </div>
@@ -1067,20 +1067,20 @@ function scrollBottom() {
   requestAnimationFrame(() => { msgsArea.scrollTop = msgsArea.scrollHeight; });
 }
 
-// â”€â”€â”€ SECURITY HELPER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── SECURITY HELPER ────────────────────────────────
 function esc(s) {
   const d = document.createElement('div');
   d.textContent = s;
   return d.innerHTML;
 }
 
-// â”€â”€â”€ MARKDOWN RENDERER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MARKDOWN RENDERER ──────────────────────────────
 // Safely renders markdown. Code blocks are extracted first and HTML-escaped.
 // All remaining text is also HTML-escaped before inline markdown is applied.
 function md(raw) {
   if (!raw) return '';
 
-  // 1. Extract fenced code blocks â†’ placeholders
+  // 1. Extract fenced code blocks → placeholders
   const codeBlocks = [];
   let s = raw.replace(/```([\w]*)\n?([\s\S]*?)```/g, (_, lang, code) => {
     const idx = codeBlocks.length;
@@ -1088,7 +1088,7 @@ function md(raw) {
     return `\x02CODE${idx}\x02`;
   });
 
-  // 2. Extract inline code â†’ placeholders
+  // 2. Extract inline code → placeholders
   const inlineCodes = [];
   s = s.replace(/`([^`\n]+)`/g, (_, c) => {
     const idx = inlineCodes.length;
@@ -1131,7 +1131,7 @@ function md(raw) {
   return html;
 }
 
-// â”€â”€â”€ MODE TOGGLE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── MODE TOGGLE ─────────────────────────────────────
 let lastQuery = '';
 
 function toggleMode() {
@@ -1139,13 +1139,13 @@ function toggleMode() {
   const btn = document.getElementById('modeBtn');
   const lbl = document.getElementById('modeLbl');
   if (useBlocking) {
-    lbl.textContent = 'æ™®é€š';
+    lbl.textContent = '普通';
     btn.classList.add('blocking');
-    btn.title = 'å½“å‰ï¼šæ™®é€š(é˜»å¡ž)æ¨¡å¼ï¼Œç‚¹å‡»åˆ‡å›žæµå¼';
+    btn.title = '当前：普通(阻塞)模式，点击切回流式';
   } else {
-    lbl.textContent = 'æµå¼';
+    lbl.textContent = '流式';
     btn.classList.remove('blocking');
-    btn.title = 'å½“å‰ï¼šæµå¼æ¨¡å¼ï¼Œç‚¹å‡»åˆ‡æ¢æ™®é€šæ¨¡å¼';
+    btn.title = '当前：流式模式，点击切换普通模式';
   }
 }
 
@@ -1166,9 +1166,8 @@ function retryLast() {
   }
 }
 
-// â”€â”€â”€ INIT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── INIT ────────────────────────────────────────────
 msgInput.focus();
 </script>
 </body>
-<!-- build: 20260717-1353 -->
 </html>
