@@ -1017,11 +1017,21 @@ function appendAiBubble() {
   return g;
 }
 
+// Throttled render: flush to DOM at most every 50 ms instead of on every chunk
+let _renderTimer = null;
+let _pendingRender = false;
+
 function renderStream(content, withCursor) {
-  const b = document.getElementById('streamBubble');
-  if (!b) return;
-  b.innerHTML = md(content) + (withCursor ? '<span class="stream-cursor"></span>' : '');
-  scrollBottom();
+  if (_renderTimer) return;          // already scheduled, skip
+  _pendingRender = true;
+  _renderTimer = setTimeout(() => {
+    _renderTimer = null;
+    _pendingRender = false;
+    const b = document.getElementById('streamBubble');
+    if (!b) return;
+    b.innerHTML = md(streamContent) + (withCursor ? '<span class="stream-cursor"></span>' : '');
+    scrollBottom();
+  }, 50);
 }
 
 function finalizeStream() {
