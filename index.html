@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CD DL Process Expert · 成都洗衣粉工艺AI专家</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sidebar-w: 268px;
+      --panda-black: #1c1c1e;
+      --panda-dark: #2c2c2e;
+      --bamboo: #3a9d4f;
+      --bamboo-light: #5cb870;
+      --bamboo-pale: #e8f5e9;
+      --bamboo-border: #c8e6c9;
+      --accent-dark: #2d6a4f;
+      --bg: #f2f4f0;
+      --chat-bg: #fafafa;
+      --border: #e2e2e2;
+      --shadow-sm: 0 1px 6px rgba(0,0,0,0.07);
+      --shadow-md: 0 4px 18px rgba(0,0,0,0.11);
+      --r: 16px;
+      --r-sm: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      font-family: 'Noto Sans SC', 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--panda-black);
+      display: flex;
+      height: 100vh;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: linear-gradient(175deg, #1c1c1e 0%, #252526 55%, #1a2420 100%);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    /* bamboo cane decoration */
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 12px;
+      width: 28px; height: 220px;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(58,157,79,0.18) 0px, rgba(58,157,79,0.18) 38px,
+        rgba(58,157,79,0.06) 38px, rgba(58,157,79,0.06) 44px
+      );
+      border-radius: 14px;
+      pointer-events: none;
+    }
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      bottom: 0; right: 32px;
+      width: 16px; height: 140px;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(58,157,79,0.12) 0px, rgba(58,157,79,0.12) 28px,
+        rgba(58,157,79,0.04) 28px, rgba(58,157,79,0.04) 32px
+      );
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .sb-top {
+      padding: 28px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Panda */
+    .panda-wrap {
+      width: 88px; height: 88px;
+      cursor: pointer;
+      animation: pandaBob 5s ease-in-out infinite;
+      transition: filter 0.2s;
+    }
+    .panda-wrap:hover { filter: drop-shadow(0 0 10px rgba(58,157,79,0.5)); }
+
+    @keyframes pandaBob {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      30%      { transform: translateY(-5px) rotate(-1.5deg); }
+      70%      { transform: translateY(-2px) rotate(1deg); }
+    }
+
+    .panda-eye-l, .panda-eye-r {
+      transform-origin: center;
+      animation: eyeBlink 6s ease-in-out infinite;
+    }
+    .panda-eye-r { animation-delay: 0.12s; }
+
+    @keyframes eyeBlink {
+      0%,80%,100% { transform: scaleY(1); }
+      87% { transform: scaleY(0.07); }
+    }
+
+    .sb-title-area {
+      text-align: center;
+      margin-top: 14px;
+    }
+    .sb-title-en {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .sb-divider-line {
+      width: 32px; height: 2px;
+      background: var(--bamboo);
+      border-radius: 1px;
+      margin: 7px auto;
+    }
+    .sb-title-cn {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+    .rag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(58,157,79,0.2);
+      border: 1px solid rgba(58,157,79,0.4);
+      color: #7dba82;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 12px;
+      margin-top: 7px;
+    }
+    .rag-badge-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #7dba82;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .sb-hr {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 14px 18px;
+    }
+
+    .new-chat-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin: 0 18px;
+      padding: 10px 0;
+      background: rgba(58,157,79,0.12);
+      border: 1px solid rgba(58,157,79,0.35);
+      border-radius: var(--r-sm);
+      color: #7dba82;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      width: calc(100% - 36px);
+      transition: all 0.2s;
+    }
+    .new-chat-btn:hover {
+      background: rgba(58,157,79,0.22);
+      border-color: rgba(58,157,79,0.6);
+      color: #a5d6a7;
+    }
+
+    .sb-section { padding: 0 18px; margin-top: 14px; }
+    .sb-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 7px;
+    }
+    .example-q {
+      display: block;
+      padding: 7px 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.48);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.18s;
+      border: 1px solid transparent;
+      line-height: 1.4;
+      margin-bottom: 3px;
+    }
+    .example-q::before { content: '❯ '; color: var(--bamboo); font-size: 10px; }
+    .example-q:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .sb-footer {
+      margin-top: auto;
+      padding: 14px 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .sb-footer-txt {
+      font-size: 10.5px;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      line-height: 1.7;
+    }
+    .sb-footer-txt strong { color: rgba(58,157,79,0.6); font-weight: 500; }
+
+    /* ─── MAIN ─── */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--chat-bg);
+    }
+
+    /* Header */
+    .chat-header {
+      padding: 13px 22px;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+      z-index: 10;
+    }
+    .hdr-left { display: flex; align-items: center; gap: 11px; }
+    .hdr-panda { width: 34px; height: 34px; flex-shrink: 0; }
+    .hdr-title { font-size: 14.5px; font-weight: 700; line-height: 1.2; }
+    .hdr-sub { font-size: 11.5px; color: #888; line-height: 1.3; }
+    .hdr-right { display: flex; align-items: center; gap: 6px; }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #34c759;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52,199,89,0.4); }
+      50%      { opacity: 0.85; box-shadow: 0 0 0 5px rgba(52,199,89,0); }
+    }
+    .status-label { font-size: 12px; color: #888; }
+
+    /* Messages */
+    .msgs-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 22px 20px;
+      scroll-behavior: smooth;
+    }
+    .msgs-area::-webkit-scrollbar { width: 5px; }
+    .msgs-area::-webkit-scrollbar-track { background: transparent; }
+    .msgs-area::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 3px; }
+    .msgs-area::-webkit-scrollbar-thumb:hover { background: #b8b8b8; }
+
+    /* Welcome card */
+    .welcome-card {
+      max-width: 520px;
+      margin: 12px auto 28px;
+      background: white;
+      border-radius: var(--r);
+      padding: 30px 28px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .wc-panda { width: 68px; height: 68px; margin: 0 auto 14px; }
+    .wc-title { font-size: 19px; font-weight: 700; margin-bottom: 9px; }
+    .wc-desc {
+      font-size: 13.5px;
+      color: #666;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .wc-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .chip {
+      padding: 6px 14px;
+      background: var(--bamboo-pale);
+      border: 1px solid var(--bamboo-border);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--accent-dark);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .chip:hover { background: #c8e6c9; transform: translateY(-1px); box-shadow: 0 2px 6px rgba(58,157,79,0.15); }
+
+    /* Message groups */
+    .msg-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin-bottom: 18px;
+      animation: msgIn 0.28s ease-out;
+    }
+    .msg-group.user { flex-direction: row-reverse; }
+
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      overflow: hidden;
+    }
+    .avatar.ai   { background: var(--panda-black); }
+    .avatar.user { background: linear-gradient(135deg, var(--bamboo), var(--accent-dark)); color: white; font-size: 13px; }
+
+    .msg-meta { display: flex; flex-direction: column; max-width: 72%; }
+    .msg-group.user .msg-meta { align-items: flex-end; }
+    .msg-sender { font-size: 10.5px; color: #aaa; font-weight: 500; padding: 0 3px; margin-bottom: 3px; }
+
+    .bubble {
+      padding: 11px 15px;
+      border-radius: var(--r);
+      font-size: 14px;
+      line-height: 1.65;
+      word-break: break-word;
+      position: relative;
+    }
+    .bubble.ai {
+      background: white;
+      border: 1px solid var(--border);
+      border-top-left-radius: 4px;
+      box-shadow: var(--shadow-sm);
+      color: var(--panda-black);
+    }
+    .bubble.user {
+      background: var(--panda-black);
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* Markdown inside bubbles */
+    .bubble p   { margin-bottom: 7px; }
+    .bubble p:last-child { margin-bottom: 0; }
+    .bubble strong { font-weight: 600; }
+    .bubble em     { font-style: italic; }
+    .bubble h1 { font-size: 16px; font-weight: 700; margin: 10px 0 5px; }
+    .bubble h2 { font-size: 15px; font-weight: 600; margin: 9px 0 4px; }
+    .bubble h3 { font-size: 14px; font-weight: 600; margin: 8px 0 4px; }
+    .bubble ul, .bubble ol { padding-left: 18px; margin: 5px 0; }
+    .bubble li  { margin-bottom: 3px; }
+    .bubble blockquote {
+      border-left: 3px solid var(--bamboo);
+      padding-left: 11px;
+      color: #777;
+      margin: 7px 0;
+      font-style: italic;
+    }
+    .bubble code {
+      background: rgba(0,0,0,0.06);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+      font-size: 12.5px;
+    }
+    .bubble.user code { background: rgba(255,255,255,0.15); }
+    .bubble pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 12px 14px;
+      border-radius: 9px;
+      overflow-x: auto;
+      margin: 8px 0;
+      font-size: 12.5px;
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    }
+    .bubble pre code { background: none; padding: 0; font-size: inherit; color: inherit; }
+    .bubble table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 13px; }
+    .bubble th, .bubble td { border: 1px solid var(--border); padding: 5px 9px; text-align: left; }
+    .bubble th { background: var(--bg); font-weight: 600; }
+    .bubble hr { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+
+    .msg-time { font-size: 10px; color: #ccc; padding: 0 3px; margin-top: 3px; }
+
+    .typing-status { display: flex; align-items: center; gap: 10px; }
+    .typing-label  { font-size: 12.5px; color: #888; font-style: italic; animation: fadeLabel 0.4s ease; }
+    @keyframes fadeLabel { from { opacity:0; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
+    /* Typing indicator */
+    .typing-ind { display: flex; align-items: center; gap: 5px; padding: 4px 2px; }
+    .t-dot {
+      width: 7px; height: 7px;
+      background: #ccc;
+      border-radius: 50%;
+      animation: tDot 1.3s ease-in-out infinite;
+    }
+    .t-dot:nth-child(2) { animation-delay: 0.18s; }
+    .t-dot:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes tDot {
+      0%,80%,100% { transform: scale(0.65); opacity: 0.45; }
+      40%          { transform: scale(1);    opacity: 1; }
+    }
+
+    /* Stream cursor */
+    .stream-cursor {
+      display: inline-block;
+      width: 2px; height: 14px;
+      background: var(--bamboo);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: cursorBlink 0.75s step-end infinite;
+    }
+    @keyframes cursorBlink {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* Error */
+    .err-box {
+      display: flex; align-items: flex-start; gap: 8px;
+      background: #fff5f5;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 10px 13px;
+      font-size: 13px;
+      color: #dc2626;
+    }
+    .err-box svg { flex-shrink: 0; margin-top: 1px; }
+
+    /* ─── INPUT AREA ─── */
+    .input-area {
+      padding: 14px 20px 18px;
+      background: white;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .input-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      gap: 9px;
+      background: #f5f5f2;
+      border: 1.5px solid #dedede;
+      border-radius: var(--r);
+      padding: 9px 12px;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .input-wrap:focus-within {
+      border-color: var(--bamboo);
+      box-shadow: 0 0 0 3px rgba(58,157,79,0.12);
+      background: white;
+    }
+    .msg-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--panda-black);
+      resize: none;
+      max-height: 120px;
+      line-height: 1.6;
+      min-height: 22px;
+    }
+    .msg-input::placeholder { color: #bbb; }
+    .send-btn {
+      width: 35px; height: 35px;
+      border-radius: 9px;
+      border: none;
+      background: var(--bamboo);
+      color: white;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.18s;
+    }
+    .send-btn:hover:not(:disabled) { background: var(--accent-dark); transform: scale(1.07); }
+    .send-btn:active:not(:disabled){ transform: scale(0.94); }
+    .send-btn:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+    .input-hint {
+      max-width: 780px;
+      margin: 7px auto 0;
+      text-align: center;
+      font-size: 11px;
+      color: #c8c8c8;
+    }
+    .input-hint kbd {
+      background: #f0f0f0;
+      border: 1px solid #d8d8d8;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 10px;
+      font-family: inherit;
+    }
+
+    @media (max-width: 700px) {
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<aside class="sidebar">
+  <div class="sb-top">
+
+    <!-- Panda mascot -->
+    <div class="panda-wrap" onclick="pandaPlay(this)" title="点击熊猫~">
+      <svg width="88" height="88" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ears -->
+        <circle cx="27" cy="27" r="20" fill="#1a1a1a"/>
+        <circle cx="27" cy="27" r="11" fill="#2b2b2b"/>
+        <circle cx="93" cy="27" r="20" fill="#1a1a1a"/>
+        <circle cx="93" cy="27" r="11" fill="#2b2b2b"/>
+        <!-- Head -->
+        <circle cx="60" cy="67" r="48" fill="white"/>
+        <!-- Eye patches -->
+        <ellipse cx="41" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(-12 41 61)"/>
+        <ellipse cx="79" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(12 79 61)"/>
+        <!-- Eye whites -->
+        <circle class="panda-eye-l" cx="41" cy="61" r="7.5" fill="white" transform-origin="41 61"/>
+        <circle class="panda-eye-r" cx="79" cy="61" r="7.5" fill="white" transform-origin="79 61"/>
+        <!-- Pupils -->
+        <circle cx="42" cy="61" r="3.8" fill="#1a1a1a"/>
+        <circle cx="80" cy="61" r="3.8" fill="#1a1a1a"/>
+        <!-- Shine -->
+        <circle cx="44" cy="59" r="1.6" fill="white"/>
+        <circle cx="82" cy="59" r="1.6" fill="white"/>
+        <!-- Nose -->
+        <ellipse cx="60" cy="77" rx="5.5" ry="3.8" fill="#1a1a1a"/>
+        <!-- Mouth -->
+        <path d="M 52 84 Q 60 92 68 84" stroke="#1a1a1a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <!-- Blush -->
+        <circle cx="29" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+        <circle cx="91" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+      </svg>
+    </div>
+
+    <div class="sb-title-area">
+      <div class="sb-title-en">CD DL Process Expert</div>
+      <div class="sb-divider-line"></div>
+      <div class="sb-title-cn">成都洗衣粉工艺AI专家</div>
+      <div class="rag-badge">
+        <span class="rag-badge-dot"></span>
+        RAG · AI AGENT
+      </div>
+    </div>
+  </div>
+
+  <div class="sb-hr"></div>
+
+  <button class="new-chat-btn" onclick="newChat()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+    新对话
+  </button>
+
+  <div class="sb-section" style="margin-top:16px;">
+    <div class="sb-section-label">常见问题</div>
+    <span class="example-q" onclick="fillInput(this)">喷雾干燥塔关键控制参数？</span>
+    <span class="example-q" onclick="fillInput(this)">如何提高成品流动性？</span>
+    <span class="example-q" onclick="fillInput(this)">浆料配制的工艺要点</span>
+    <span class="example-q" onclick="fillInput(this)">洗衣粉结块原因分析</span>
+    <span class="example-q" onclick="fillInput(this)">DL工厂质量标准是什么？</span>
+    <span class="example-q" onclick="fillInput(this)">表面活性剂的作用机理</span>
+  </div>
+
+  <div class="sb-footer">
+    <div class="sb-footer-txt">
+      <div>成都 DL 工厂 · 工艺知识库</div>
+      <div><strong>Powered by Dify RAG</strong> · P&amp;G</div>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<main class="main">
+
+  <!-- Header -->
+  <header class="chat-header">
+    <div class="hdr-left">
+      <svg class="hdr-panda" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="20" fill="#1a1a1a"/>
+        <circle cx="93" cy="27" r="20" fill="#1a1a1a"/>
+        <circle cx="60" cy="67" r="48" fill="white"/>
+        <ellipse cx="41" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(-12 41 61)"/>
+        <ellipse cx="79" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(12 79 61)"/>
+        <circle cx="41" cy="61" r="7.5" fill="white"/>
+        <circle cx="79" cy="61" r="7.5" fill="white"/>
+        <circle cx="42" cy="61" r="3.8" fill="#1a1a1a"/>
+        <circle cx="80" cy="61" r="3.8" fill="#1a1a1a"/>
+        <circle cx="44" cy="59" r="1.6" fill="white"/>
+        <circle cx="82" cy="59" r="1.6" fill="white"/>
+        <ellipse cx="60" cy="77" rx="5.5" ry="3.8" fill="#1a1a1a"/>
+        <path d="M 52 84 Q 60 92 68 84" stroke="#1a1a1a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="29" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+        <circle cx="91" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+      </svg>
+      <div>
+        <div class="hdr-title">CD DL Process Expert</div>
+        <div class="hdr-sub">成都洗衣粉工艺AI专家 · 智能知识问答</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <span class="status-dot"></span>
+      <span class="status-label">在线</span>
+    </div>
+  </header>
+
+  <!-- Messages -->
+  <div class="msgs-area" id="msgsArea">
+
+    <!-- Welcome card -->
+    <div class="welcome-card" id="welcomeCard">
+      <svg class="wc-panda" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="27" cy="27" r="20" fill="#1a1a1a"/>
+        <circle cx="93" cy="27" r="20" fill="#1a1a1a"/>
+        <circle cx="60" cy="67" r="48" fill="white" stroke="#ececec" stroke-width="1"/>
+        <ellipse cx="41" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(-12 41 61)"/>
+        <ellipse cx="79" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(12 79 61)"/>
+        <circle cx="41" cy="61" r="7.5" fill="white"/>
+        <circle cx="79" cy="61" r="7.5" fill="white"/>
+        <circle cx="42" cy="61" r="3.8" fill="#1a1a1a"/>
+        <circle cx="80" cy="61" r="3.8" fill="#1a1a1a"/>
+        <circle cx="44" cy="59" r="1.6" fill="white"/>
+        <circle cx="82" cy="59" r="1.6" fill="white"/>
+        <ellipse cx="60" cy="77" rx="5.5" ry="3.8" fill="#1a1a1a"/>
+        <path d="M 52 84 Q 60 92 68 84" stroke="#1a1a1a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+        <circle cx="29" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+        <circle cx="91" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+      </svg>
+      <div class="wc-title">你好！我是 DL 工艺AI专家 🎋</div>
+      <div class="wc-desc">
+        我是基于成都DL工厂工艺知识库打造的AI助手，<br>
+        专注于洗衣粉生产工艺、配方优化、设备操作与质量控制。<br>
+        有什么工艺问题，尽管问我！
+      </div>
+      <div class="wc-chips">
+        <button class="chip" onclick="chipSend('请介绍成都DL工厂洗衣粉的主要生产工艺流程')">🏭 工艺流程</button>
+        <button class="chip" onclick="chipSend('洗衣粉配方的主要成分及各自的作用是什么？')">🧪 配方知识</button>
+        <button class="chip" onclick="chipSend('喷雾干燥塔的操作规程和注意事项是什么？')">⚙️ 设备操作</button>
+        <button class="chip" onclick="chipSend('洗衣粉成品的主要质量检测项目和标准？')">📊 质量标准</button>
+        <button class="chip" onclick="chipSend('喷雾干燥塔常见故障及排查方法？')">🔧 故障排查</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Input -->
+  <div class="input-area">
+    <div class="input-wrap">
+      <textarea
+        id="msgInput"
+        class="msg-input"
+        placeholder="向工艺AI专家提问…（支持中英文，Enter 发送）"
+        rows="1"
+        onkeydown="onKeyDown(event)"
+        oninput="autoGrow(this)"
+      ></textarea>
+      <button id="sendBtn" class="send-btn" onclick="doSend()" title="发送 (Enter)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </button>
+    </div>
+    <div class="input-hint">
+      按 <kbd>Enter</kbd> 发送 &nbsp;·&nbsp; <kbd>Shift + Enter</kbd> 换行
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ─── CONFIG ─────────────────────────────────────────
+const API_KEY  = 'app-mvvhaxAcUeU0kWwxhr23OH6i';
+const API_BASE = 'https://nezha-qa-api.cn-pgcloud.com/v1';
+const USER_ID  = 'cd-dl-user-' + Math.random().toString(36).slice(2, 9);
+
+// ─── STATE ──────────────────────────────────────────
+let convId        = '';
+let busy          = false;
+let streamEl      = null;
+let streamContent = '';
+let useBlocking   = false;
+let activeTyping  = null;   // typing bubble DOM node, kept until first content
+
+// ─── DOM ────────────────────────────────────────────
+const msgsArea = document.getElementById('msgsArea');
+const msgInput = document.getElementById('msgInput');
+const sendBtn  = document.getElementById('sendBtn');
+
+// ─── PANDA FUN ──────────────────────────────────────
+function pandaPlay(el) {
+  el.style.animation = 'none';
+  void el.offsetWidth;
+  el.style.animation = 'pandaBob 0.6s ease-in-out 3, pandaBob 5s ease-in-out infinite 1.8s';
+}
+
+// ─── SIDEBAR HELPERS ────────────────────────────────
+function fillInput(el) {
+  const txt = el.textContent.replace(/^❯ /, '').trim();
+  msgInput.value = txt;
+  autoGrow(msgInput);
+  msgInput.focus();
+}
+
+function chipSend(txt) {
+  msgInput.value = txt;
+  autoGrow(msgInput);
+  doSend();
+}
+
+function newChat() {
+  convId        = '';
+  busy          = false;
+  streamEl      = null;
+  streamContent = '';
+  activeTyping  = null;
+  sendBtn.disabled = false;
+  msgsArea.innerHTML = '';
+  msgsArea.appendChild(buildWelcomeCard());
+  msgInput.value = '';
+  msgInput.style.height = 'auto';
+  msgInput.focus();
+}
+
+function buildWelcomeCard() {
+  const wc = document.getElementById('welcomeCard');
+  if (wc) { wc.style.display = ''; return wc; }
+  // fallback – shouldn't normally be needed
+  const d = document.createElement('div');
+  d.id = 'welcomeCard';
+  d.className = 'welcome-card';
+  d.innerHTML = '<div class="wc-title">新对话开始 🎋</div>';
+  return d;
+}
+
+// ─── INPUT ──────────────────────────────────────────
+function autoGrow(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function onKeyDown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); doSend(); }
+}
+
+// ─── SEND ───────────────────────────────────────────
+async function doSend() {
+  const query = msgInput.value.trim();
+  if (!query || busy) return;
+
+  lastQuery = query; // capture for retry
+
+  // hide welcome
+  const wc = document.getElementById('welcomeCard');
+  if (wc) wc.style.display = 'none';
+
+  msgInput.value = '';
+  msgInput.style.height = 'auto';
+
+  appendUser(query);
+
+  busy = true;
+  sendBtn.disabled = true;
+
+  const typingGroup = appendTyping();
+
+  try {
+    if (useBlocking) {
+      await sendBlocking(query, typingGroup);
+    } else {
+      await sendStreaming(query, typingGroup);
+    }
+  } catch (err) {
+    if (activeTyping) { activeTyping.remove(); activeTyping = null; }
+    appendError(diagErr(err));
+    console.error('[CD-DL]', err);
+  } finally {
+    busy = false;
+    sendBtn.disabled = false;
+    msgInput.focus();
+  }
+}
+
+function handleEvent(ev) {
+  if (ev.event === 'message' || ev.event === 'agent_message') {
+    // First real text chunk: swap typing bubble → stream bubble
+    if (activeTyping) {
+      activeTyping.remove();
+      activeTyping = null;
+      streamContent = '';
+      streamEl = appendAiBubble();
+    }
+    streamContent += ev.answer ?? '';
+    renderStream(streamContent, true);
+    if (ev.conversation_id) convId = ev.conversation_id;
+  } else if (ev.event === 'agent_thought') {
+    // Show what the agent is thinking / which tool it's calling
+    const thought = ev.thought || '';
+    const tool    = ev.tool || '';
+    let label = '🐼 思考中…';
+    if (tool)    label = `🔧 调用工具：${tool}`;
+    else if (thought) label = `💭 ${thought.slice(0, 60)}${thought.length > 60 ? '…' : ''}`;
+    updateTypingLabel(label);
+  } else if (ev.event === 'workflow_started' || ev.event === 'node_started') {
+    updateTypingLabel('⚙️ 正在分析问题…');
+  } else if (ev.event === 'message_end') {
+    if (ev.conversation_id) convId = ev.conversation_id;
+  } else if (ev.event === 'error') {
+    appendError(ev.message ?? '未知错误');
+  }
+}
+
+// ─── DOM BUILDERS ───────────────────────────────────
+function now() {
+  return new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+}
+
+const PANDA_SVG = `<svg width="34" height="34" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="27" cy="27" r="20" fill="#1a1a1a"/>
+  <circle cx="93" cy="27" r="20" fill="#1a1a1a"/>
+  <circle cx="60" cy="67" r="48" fill="white"/>
+  <ellipse cx="41" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(-12 41 61)"/>
+  <ellipse cx="79" cy="61" rx="15.5" ry="14.5" fill="#1a1a1a" transform="rotate(12 79 61)"/>
+  <circle cx="41" cy="61" r="7.5" fill="white"/>
+  <circle cx="79" cy="61" r="7.5" fill="white"/>
+  <circle cx="42" cy="61" r="3.8" fill="#1a1a1a"/>
+  <circle cx="80" cy="61" r="3.8" fill="#1a1a1a"/>
+  <circle cx="44" cy="59" r="1.6" fill="white"/>
+  <circle cx="82" cy="59" r="1.6" fill="white"/>
+  <ellipse cx="60" cy="77" rx="5.5" ry="3.8" fill="#1a1a1a"/>
+  <path d="M 52 84 Q 60 92 68 84" stroke="#1a1a1a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="29" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+  <circle cx="91" cy="80" r="8.5" fill="#ffb3c1" opacity="0.52"/>
+</svg>`;
+
+// ─── STREAMING SEND ─────────────────────────────────
+async function sendStreaming(query, typingGroup) {
+  const payload = {
+    inputs: {},
+    query,
+    response_mode: 'streaming',
+    ...(convId ? { conversation_id: convId } : {}),
+    user: USER_ID,
+  };
+  console.log('[CD-DL] 请求 payload:', JSON.stringify(payload));
+
+  const resp = await fetch(`${API_BASE}/chat-messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`,
+      'Content-Type': 'application/json',
+      'Accept': 'text/event-stream',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!resp.ok) {
+    const body = await resp.text().catch(() => '');
+    console.error('[CD-DL] 响应错误体:', body);
+    let detail = '';
+    try { detail = JSON.parse(body).message || JSON.parse(body).error || body; } catch (_) { detail = body; }
+    throw new Error(`HTTP ${resp.status}: ${detail || resp.statusText}`);
+  }
+
+  activeTyping = typingGroup;
+  updateTypingLabel('🐼 思考中…');
+
+  const reader  = resp.body.getReader();
+  const decoder = new TextDecoder();
+  let   buf     = '';
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += decoder.decode(value, { stream: true });
+    const lines = buf.split('\n');
+    buf = lines.pop() ?? '';
+    for (const line of lines) {
+      const t = line.trim();
+      if (!t.startsWith('data: ')) continue;
+      const raw = t.slice(6);
+      if (raw === '[DONE]') continue;
+      try { handleEvent(JSON.parse(raw)); } catch (_) { /* skip */ }
+    }
+  }
+
+  finalizeStream();
+  if (activeTyping) { activeTyping.remove(); activeTyping = null; }
+}
+
+// ─── BLOCKING FALLBACK ───────────────────────────────
+async function sendBlocking(query, typingGroup) {
+  const resp = await fetch(`${API_BASE}/chat-messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      inputs: {},
+      query,
+      response_mode: 'blocking',
+      ...(convId ? { conversation_id: convId } : {}),
+      user: USER_ID,
+    }),
+  });
+
+  if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
+
+  const data = await resp.json();
+  if (data.conversation_id) convId = data.conversation_id;
+  typingGroup.remove();
+  streamContent = data.answer ?? '';
+  streamEl = appendAiBubble();
+  finalizeStream();
+}
+
+// ─── ERROR DIAGNOSIS ────────────────────────────────
+function diagErr(err) {
+  const m = (err.message || '').toLowerCase();
+  if (m.includes('failed to fetch') || m.includes('networkerror') || m.includes('load failed')) {
+    return '网络请求失败（Failed to fetch）\n\n可能原因：\n① 未连接 P&G 内网 / VPN — 请确认已开启 GlobalProtect\n② 用 file:// 直接打开导致 CORS 限制 — 用本地服务器打开\n③ 防火墙阻止了 nezha-qa-api.cn-pgcloud.com';
+  }
+  if (m.includes('cors')) {
+    return 'CORS 跨域被拒绝\n\n请将文件部署到本地 HTTP 服务器后再访问（python -m http.server 8080）';
+  }
+  if (m.includes('401') || m.includes('unauthorized')) {
+    return 'API Key 无效或已过期（401 Unauthorized）';
+  }
+  if (m.includes('403')) { return '无访问权限（403 Forbidden）'; }
+  if (m.includes('429')) { return '请求过于频繁（429），稍后再试'; }
+  if (m.includes('500') || m.includes('502') || m.includes('503')) {
+    return `服务端错误（${err.message}）— 请稍后重试`;
+  }
+  return err.message || '未知错误，请检查控制台日志';
+}
+
+// ─── DOM BUILDERS ────────────────────────────────────
+function appendUser(text) {
+  const g = document.createElement('div');
+  g.className = 'msg-group user';
+  g.innerHTML = `
+    <div class="avatar user">我</div>
+    <div class="msg-meta">
+      <span class="msg-sender">你</span>
+      <div class="bubble user">${esc(text)}</div>
+      <span class="msg-time">${now()}</span>
+    </div>`;
+  msgsArea.appendChild(g);
+  scrollBottom();
+}
+
+function appendTyping() {
+  const g = document.createElement('div');
+  g.className = 'msg-group ai';
+  g.innerHTML = `
+    <div class="avatar ai">${PANDA_SVG}</div>
+    <div class="msg-meta">
+      <span class="msg-sender">工艺AI专家</span>
+      <div class="bubble ai">
+        <div class="typing-status" id="typingStatus">
+          <div class="typing-ind">
+            <div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div>
+          </div>
+          <span class="typing-label">正在连接…</span>
+        </div>
+      </div>
+    </div>`;
+  msgsArea.appendChild(g);
+  scrollBottom();
+  return g;
+}
+
+function updateTypingLabel(text) {
+  const el = document.getElementById('typingLabel');
+  if (el) el.textContent = text;
+  // also update via class if id not yet set
+  const lbl = document.querySelector('.typing-label');
+  if (lbl) lbl.textContent = text;
+}
+
+function appendAiBubble() {
+  const g = document.createElement('div');
+  g.className = 'msg-group ai';
+  g.innerHTML = `
+    <div class="avatar ai">${PANDA_SVG}</div>
+    <div class="msg-meta">
+      <span class="msg-sender">工艺AI专家</span>
+      <div class="bubble ai" id="streamBubble"><span class="stream-cursor"></span></div>
+      <span class="msg-time" id="streamTime"></span>
+    </div>`;
+  msgsArea.appendChild(g);
+  scrollBottom();
+  return g;
+}
+
+function renderStream(content, withCursor) {
+  const b = document.getElementById('streamBubble');
+  if (!b) return;
+  b.innerHTML = md(content) + (withCursor ? '<span class="stream-cursor"></span>' : '');
+  scrollBottom();
+}
+
+function finalizeStream() {
+  const b = document.getElementById('streamBubble');
+  if (b) { b.removeAttribute('id'); b.innerHTML = md(streamContent); }
+  const t = document.getElementById('streamTime');
+  if (t) { t.removeAttribute('id'); t.textContent = now(); }
+  streamEl = null;
+  streamContent = '';
+  scrollBottom();
+}
+
+function appendError(msg) {
+  const g = document.createElement('div');
+  g.className = 'msg-group ai';
+  // convert newlines to <br> for readable diagnostics
+  const lines = msg.split('\n').map(l => esc(l));
+  const html  = lines.join('<br>');
+  g.innerHTML = `
+    <div class="avatar ai">${PANDA_SVG}</div>
+    <div class="msg-meta">
+      <span class="msg-sender">工艺AI专家</span>
+      <div class="bubble ai">
+        <div class="err-box" style="flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="0.5" fill="currentColor"/>
+            </svg>
+            <span style="line-height:1.65">${html}</span>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button onclick="switchToBlocking()" style="padding:5px 12px;font-size:12px;font-family:inherit;background:#fff3e0;border:1px solid #ffe0b2;color:#e65100;border-radius:6px;cursor:pointer;">切换普通模式重试</button>
+            <button onclick="retryLast()" style="padding:5px 12px;font-size:12px;font-family:inherit;background:#e8f5e9;border:1px solid #c8e6c9;color:#2d6a4f;border-radius:6px;cursor:pointer;">重试</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  msgsArea.appendChild(g);
+  scrollBottom();
+}
+
+function scrollBottom() {
+  requestAnimationFrame(() => { msgsArea.scrollTop = msgsArea.scrollHeight; });
+}
+
+// ─── SECURITY HELPER ────────────────────────────────
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+// ─── MARKDOWN RENDERER ──────────────────────────────
+// Safely renders markdown. Code blocks are extracted first and HTML-escaped.
+// All remaining text is also HTML-escaped before inline markdown is applied.
+function md(raw) {
+  if (!raw) return '';
+
+  // 1. Extract fenced code blocks → placeholders
+  const codeBlocks = [];
+  let s = raw.replace(/```([\w]*)\n?([\s\S]*?)```/g, (_, lang, code) => {
+    const idx = codeBlocks.length;
+    codeBlocks.push(`<pre><code class="language-${esc(lang)}">${esc(code.trim())}</code></pre>`);
+    return `\x02CODE${idx}\x02`;
+  });
+
+  // 2. Extract inline code → placeholders
+  const inlineCodes = [];
+  s = s.replace(/`([^`\n]+)`/g, (_, c) => {
+    const idx = inlineCodes.length;
+    inlineCodes.push(`<code>${esc(c)}</code>`);
+    return `\x02IC${idx}\x02`;
+  });
+
+  // 3. Escape HTML in remaining text
+  s = esc(s);
+
+  // 4. Process line by line
+  const lines = s.split('\n');
+  const out   = [];
+  for (const ln of lines) {
+    if      (/^### (.+)$/.test(ln))     out.push(ln.replace(/^### (.+)$/, '<h3>$1</h3>'));
+    else if (/^## (.+)$/.test(ln))      out.push(ln.replace(/^## (.+)$/, '<h2>$1</h2>'));
+    else if (/^# (.+)$/.test(ln))       out.push(ln.replace(/^# (.+)$/, '<h1>$1</h1>'));
+    else if (/^[-*] (.+)$/.test(ln))    out.push(ln.replace(/^[-*] (.+)$/, '<li>$1</li>'));
+    else if (/^\d+\. (.+)$/.test(ln))   out.push(ln.replace(/^\d+\. (.+)$/, '<li>$1</li>'));
+    else if (/^&gt; (.+)$/.test(ln))    out.push(ln.replace(/^&gt; (.+)$/, '<blockquote>$1</blockquote>'));
+    else if (/^---+$/.test(ln.trim()))  out.push('<hr>');
+    else if (ln.trim() === '')          out.push('');
+    else                                out.push(`<p>${ln}</p>`);
+  }
+
+  let html = out.join('\n');
+
+  // Wrap consecutive <li> in <ul>
+  html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, m => `<ul>${m}</ul>`);
+
+  // Bold / italic
+  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+  // 5. Restore placeholders
+  html = html.replace(/\x02IC(\d+)\x02/g,   (_, i) => inlineCodes[+i]);
+  html = html.replace(/\x02CODE(\d+)\x02/g, (_, i) => codeBlocks[+i]);
+
+  return html;
+}
+
+// ─── MODE TOGGLE ─────────────────────────────────────
+let lastQuery = '';
+
+function toggleMode() {
+  useBlocking = !useBlocking;
+  const btn = document.getElementById('modeBtn');
+  const lbl = document.getElementById('modeLbl');
+  if (useBlocking) {
+    lbl.textContent = '普通';
+    btn.classList.add('blocking');
+    btn.title = '当前：普通(阻塞)模式，点击切回流式';
+  } else {
+    lbl.textContent = '流式';
+    btn.classList.remove('blocking');
+    btn.title = '当前：流式模式，点击切换普通模式';
+  }
+}
+
+function switchToBlocking() {
+  if (!useBlocking) toggleMode();
+  if (lastQuery) {
+    msgInput.value = lastQuery;
+    autoGrow(msgInput);
+    doSend();
+  }
+}
+
+function retryLast() {
+  if (lastQuery) {
+    msgInput.value = lastQuery;
+    autoGrow(msgInput);
+    doSend();
+  }
+}
+
+// ─── INIT ────────────────────────────────────────────
+msgInput.focus();
+</script>
+</body>
+</html>
